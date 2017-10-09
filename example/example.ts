@@ -11,7 +11,7 @@ This example is just with the documentation, and not with actual effects and act
 
 /**
  * @type Effect
- * @name fetchDataClientErrorAction$
+ * @name fetchDataClientError$
  * @ofType FetchDataFailureAction
  * @filter If error is 4xx (Client)
  * @action ToastAction
@@ -21,7 +21,7 @@ This example is just with the documentation, and not with actual effects and act
  * @type Effect
  * @name fetchDataServerError$
  * @ofType FetchDataFailureAction
- * @filter If error is 5xx (Client)
+ * @filter If error is 5xx (Server)
  * @action ToastAction
  **/
 
