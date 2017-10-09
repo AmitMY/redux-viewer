@@ -1,6 +1,8 @@
 # redux-viewer
 A simple CLI tool to view the graph of events and actions
 
+![example](example/example.png)
+
 ## Usage
 Install the package globally:
 ```
