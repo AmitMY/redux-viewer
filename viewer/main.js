@@ -3,6 +3,32 @@ const DEFAULT_LAYOUT = {
   padding: 50,
 };
 
+const DEFAULT_COLORS = {
+  filters: '#F5A45D',
+  action: '#FF0000',
+  effects: '#86B342',
+  highlighted: '#DA00FF',
+};
+
+let searchValue = '';
+function search() {
+  searchValue = document.getElementById('search').value.toLowerCase();
+  effectsGraph.drawGraph();
+}
+// check if value match (include) search value
+function matchSearch(value) {
+  const minSearchLength = 1;
+  return (searchValue.length > minSearchLength && value.toLowerCase().indexOf(searchValue) !== -1);
+}
+// get color by type (highlight if match search)
+function getColor(value, type) {
+  if(matchSearch(value)) {
+    return DEFAULT_COLORS.highlighted;
+  } else {
+    return DEFAULT_COLORS[type]
+  }
+}
+
 const DEFAULT_STYLE = cytoscape.stylesheet()
   .selector('node')
   .css({
@@ -80,14 +106,14 @@ class EffectsGraph {
 
     let nodes = [], edges = [];
     actions.forEach(action => {
-      nodes.push({data: {id: action, name: action, faveColor: '#FF0000', faveShape: 'ellipse'}});
+      nodes.push({data: {id: action, name: action, faveColor: getColor(action, 'action'), faveShape: 'ellipse'}});
     });
     filters.forEach(effect => {
       nodes.push({
         data: {
           id: 'filter-' + effect.index,
           name: effect.filter,
-          faveColor: '#F5A45D',
+          faveColor: DEFAULT_COLORS.filters,
           faveShape: 'triangle'
         }
       });
@@ -103,7 +129,7 @@ class EffectsGraph {
       edges.push({data: {source: 'filter-' + effect.index, target: effect.index, faveColor: '#6FB1FC'}});
     });
     effects.forEach(effect => {
-      nodes.push({data: {id: effect.index, name: effect.name, faveColor: '#86B342', faveShape: 'rectangle'}});
+      nodes.push({data: {id: effect.index, name: effect.name, faveColor: DEFAULT_COLORS.effects, faveShape: 'rectangle'}});
       if (effect.action) {
         effect.action.forEach(action => {
           if (this.isActionOptional(action)) {
@@ -175,4 +201,5 @@ class EffectsGraph {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => new EffectsGraph().drawGraph(), false);
+let effectsGraph = new EffectsGraph();
+document.addEventListener('DOMContentLoaded', () => effectsGraph.drawGraph(), false);
