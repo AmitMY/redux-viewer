@@ -1,11 +1,25 @@
+html {
+  height: 100%;
+  width: 100%;
+}
 body {
+  height: 100%;
+  width: 100%;
   font: 14px helvetica neue, helvetica, arial, sans-serif;
 }
 
 #cy {
   height: 100%;
   width: 100%;
-  position: absolute;
+  /*position: absolute;*/
   left: 0;
   top: 0;
+}
+.controls {
+}
+#search-text {
+  color: #da00ff;
+  font: 15px arial, sans-serif;
+  font-weight: 900;
+  padding: 0 10px;
 }

@@ -37,3 +37,11 @@ Run the following command on your project:
 rv -s src/
 ```
 
+## Contributing:
+fork repository and then:
+
+```bash
+npm link
+npm start
+```
+This will start viewer session pointing to example folder

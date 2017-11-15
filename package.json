@@ -5,10 +5,12 @@
   "license": "MIT",
   "author": "Amit Moryossef <amitmoryossef@gmail.com>",
   "scripts": {
-    "patch-release": "npm version patch && npm publish && git push --follow-tags"
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "start": "rv -s example"
   },
+  "preferGlobal": "true",
   "bin": {
-    "rv": "bin/run.js"
+    "rv": "./bin/run.js"
   },
   "dependencies": {
     "argparse": "^1.0.9",
