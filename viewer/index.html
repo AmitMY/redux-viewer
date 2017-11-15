@@ -5,18 +5,14 @@
   <meta charset=utf-8/>
   <title>Effects map</title>
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
-  <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cola/1.6.0/cola.js"></script>
-
-  <script src="libs/cytoscape.js"></script>
-
-  <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cola/1.6.0/cytoscape-cola.js"></script>
+  <script src="force-horse/main.bundle.js"></script>
+  <link href="force-horse/style.bundle.css" rel="stylesheet"/>
 </head>
 
 <body>
-<div class="controls">
-  <span id="search-text">search</span><input id="search" oninput="search()">
-</div>
-<div id="cy"></div>
+
+<force-horse></force-horse>
+
 <!-- Load application code at the end to ensure DOM is loaded -->
 <script src="main.js"></script>
 </body>

@@ -10,7 +10,7 @@
     ]
   },
   {
-    "name": "fetchDataClientErrorAction$",
+    "name": "fetchDataClientError$",
     "ofType": [
       "FetchDataFailureAction"
     ],
@@ -24,7 +24,7 @@
     "ofType": [
       "FetchDataFailureAction"
     ],
-    "filter": "If error is 5xx (Client)",
+    "filter": "If error is 5xx (Server)",
     "action": [
       "ToastAction"
     ]

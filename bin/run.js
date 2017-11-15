@@ -26,6 +26,10 @@ if (!args.source) {
 const fs = require('fs'); // File system to write a JSON
 const path = require('path'); // Path resolving
 const findInFiles = require('find-in-files'); // File regex lookup
+const ncp = require('ncp').ncp;
+
+ncp.limit = 16;
+ncp(path.join(__dirname, '../node_modules/force-horse/dist'), path.join(__dirname, '../viewer/force-horse'));
 
 // Regex describing an effect
 const regexSearch = new RegExp(/\/\*\*([\s\S]*?)\@type Effect([\s\S]*?)\*\//);

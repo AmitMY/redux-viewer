@@ -6,9 +6,8 @@
   "author": "Amit Moryossef <amitmoryossef@gmail.com>",
   "scripts": {
     "patch-release": "npm version patch && npm publish && git push --follow-tags",
-    "start": "rv -s example"
+    "start": "node ./bin/run.js -s example"
   },
-  "preferGlobal": "true",
   "bin": {
     "rv": "./bin/run.js"
   },
@@ -16,6 +15,8 @@
     "argparse": "^1.0.9",
     "connect": "^3.6.5",
     "find-in-files": "^0.4.0",
+    "force-horse": "^1.0.12",
+    "ncp": "^2.0.0",
     "open": "0.0.5",
     "serve-static": "^1.13.1"
   }
